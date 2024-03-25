@@ -1,6 +1,6 @@
 const express = require('express');
-const Post = require('../../models/post.model');
-const Author = require('../../models/author.model');
+const Post = require('../models/post.model');
+const Author = require('../models/author.model');
 const router = express.Router();
 
 //get all published posts sorted by date
