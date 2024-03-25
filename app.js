@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
 const secretKey = process.env.KEY_SECRET;
+const PORT = process.env.PORT;
 
 //require routes
 const homeRoute = require('./routes/home');
@@ -29,8 +30,7 @@ app.use('/', homeRoute);
 app.use('/posts', postsRoute);
 app.use('/author', authorRoute);
 
-
 //starting server
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log('server started on port 3000');
 });
