@@ -2,6 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
+// loading environment variables
+dotenv.config();
+
 const secretKey = process.env.KEY_SECRET;
 const PORT = process.env.PORT;
 
@@ -10,8 +13,6 @@ const homeRoute = require('./routes/home');
 const postsRoute = require('./routes/posts');
 const authorRoute = require('./routes/author');
 
-// loading environment variables
-dotenv.config();
 // connecting to database
 mongoose
   .connect(process.env.DB_URI)
@@ -32,5 +33,5 @@ app.use('/author', authorRoute);
 
 //starting server
 app.listen(PORT, () => {
-  console.log('server started on port 3000');
+  console.log(`server started on port ${PORT}`);
 });

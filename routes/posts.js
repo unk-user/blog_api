@@ -6,7 +6,12 @@ const router = express.Router();
 //get all published posts sorted by date
 router.get('/', async (req, res, next) => {
   try {
-    const posts = await Post.find({ published: true }).sort({ createdAt: -1 });
+    const limit = req.query.limit || 5;
+    const filter = req.query.filter === 'oldest' ? 1 : -1;
+
+    const posts = await Post.find({ published: true })
+      .sort({ createdAt: filter })
+      .limit(limit);
     res.json({
       posts: posts,
     });
