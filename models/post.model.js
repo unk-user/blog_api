@@ -14,6 +14,10 @@ const postSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Author',
   },
+  authorName: {
+    type: String,
+    required: true,
+  },
   published: { type: Boolean, default: false },
   comments: [
     {
