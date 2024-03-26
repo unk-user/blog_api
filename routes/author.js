@@ -45,7 +45,7 @@ router.post('/posts', verifyToken, async (req, res, next) => {
   const comments = [];
   try {
     const authorId = req.authorId;
-    const authorName = await Author.findOne({_id: authorId}, {name: 1});
+    const authorName = await Author.findOne({_id: authorId}, {username: 1});
 
     const newPost = new Post({
       title,
@@ -111,9 +111,6 @@ router.post('/signin', async (req, res, next) => {
 
     res.status(201).json({ author: savedAuthor });
   } catch (error) {
-    //TODO: better way to handle errors
-    //Add redirection
-
     if (error.name === 'ValidationError') {
       // Handle validation errors
       const errors = Object.values(error.errors).map((val) => val.message);
