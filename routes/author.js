@@ -45,7 +45,7 @@ router.post('/posts', verifyToken, async (req, res, next) => {
   const comments = [];
   try {
     const authorId = req.authorId;
-    const authorName = await Author.findOne({_id: authorId}, {username: 1});
+    const authorName = await Author.findOne({_id: authorId}, {username: 1, _id: 0});
 
     const newPost = new Post({
       title,
