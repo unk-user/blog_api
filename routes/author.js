@@ -51,7 +51,7 @@ router.post('/posts', verifyToken, async (req, res, next) => {
       title,
       content,
       comments,
-      authorName: authorName.userName,
+      authorName: authorName.username,
       author: authorId,
       published: published || false,
     });
