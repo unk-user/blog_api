@@ -1,7 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const cors = require(cors);
 
 // loading environment variables
 dotenv.config();
@@ -27,7 +26,6 @@ mongoose
 const app = express();
 
 // setting middleware functions
-app.use(cors());
 app.use(express.json());
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
