@@ -51,7 +51,7 @@ router.post('/:id/comments', async (req, res) => {
 
     // Find the post by ID and update its comments array with the new comment's ObjectId
     const updatedPost = await Post.findByIdAndUpdate(
-      postId,
+      id,
       { $push: { comments: savedComment._id } },
       { new: true }
     );
